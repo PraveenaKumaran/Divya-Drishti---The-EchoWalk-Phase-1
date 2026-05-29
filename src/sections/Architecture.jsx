@@ -63,7 +63,7 @@ function FlowDiagram() {
   ]
   const outputs = [
     { icon: Volume2, label: 'Tamil Voice' },
-    { icon: Vibrate, label: 'Haptics (Next Phase)' },
+    { icon: Vibrate, label: 'Haptics (Phase 2)' },
   ]
 
   return (
