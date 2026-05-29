@@ -61,7 +61,7 @@ export default function Demo() {
 
             {/* The Mechanical Lever */}
             <Reveal delay={0.3} className="mt-12">
-              <LeverSwitch onActivate={() => window.open('http://localhost:5173/', '_blank')} />
+              <LeverSwitch onActivate={() => window.open('https://divya-drishti-the-echo-walk-phase-1-three.vercel.app', '_blank')} />
               <p className="mt-5 text-[12px] text-ash font-light max-w-xs">
                 Ensure your camera is enabled. Processing happens entirely on-device via TensorFlow.js.
               </p>
