@@ -8,11 +8,9 @@ export function cn(...classes) {
 export const SITE = {
   // ⚠️ localhost only works on your machine. Deploy (Vercel/Netlify) and
   // paste the public URL here so judges can open the live demo.
-  demoUrl: 'http://localhost:5173/',
-  repoUrl: '#', // add your GitHub repo link
+  demoUrl: 'https://divya-drishti-the-echo-walk-phase-1-three.vercel.app',
+  repoUrl: 'https://github.com/PraveenaKumaran/Divya-Drishti---The-EchoWalk-Phase-1-Demo', // add your GitHub repo link
   team: [
-    { name: 'Your Name', role: 'Founder · Engineering' },
-    { name: 'Teammate Two', role: 'AI / Vision' },
-    { name: 'Teammate Three', role: 'Design · Accessibility' },
+    { name: 'Your Name', role: 'Founder · Engineering' }
   ],
 }
