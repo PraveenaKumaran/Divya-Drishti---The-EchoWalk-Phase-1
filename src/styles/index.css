@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #e8b84b;
+  --amber: #ffcf6b;
+  --ember: #ff9d3c;
+  --violet: #7c5cff;
+  --aura: #a78bfa;
+  --void: #05060f;
+  --starlight: #f4f1e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--starlight);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Divine cosmic background field ─────────────────────────── */
+.cosmic-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124, 92, 255, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(232, 184, 75, 0.08), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 10% 80%, rgba(75, 59, 214, 0.12), transparent 60%),
+    linear-gradient(180deg, #05060f 0%, #0a0c1c 50%, #05060f 100%);
+}
+
+/* ── Liquid glass (adapted from reference design system) ─────── */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.015);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(232, 184, 75, 0.12) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(124, 92, 255, 0.12) 80%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.liquid-glass-strong {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Divine shimmer text ─────────────────────────────────────── */
+.shimmer-gold {
+  background: linear-gradient(
+    100deg,
+    #e8b84b 20%,
+    #fff3d0 38%,
+    #ffffff 50%,
+    #fff3d0 62%,
+    #e8b84b 80%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 8s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ── Noise / grain overlay (from reference) ──────────────────── */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+}
+
+/* ── Parchment texture (code-built scroll) ───────────────────── */
+.parchment {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(160, 120, 60, 0.18), transparent 50%),
+    radial-gradient(ellipse at 75% 75%, rgba(120, 85, 40, 0.22), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(245, 232, 200, 0.04), transparent 70%),
+    linear-gradient(135deg, #e8d9b5 0%, #ddc89a 25%, #e6d6ad 50%, #d4bf8e 75%, #e2d0a3 100%);
+  position: relative;
+}
+.parchment-edge {
+  filter: url(#torn-edge);
+}
+
+/* ── Star twinkle dots ───────────────────────────────────────── */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  animation: twinkle var(--dur, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.9; transform: scale(1.2); }
+}
+
+/* ── Gradient-border glow card (adapted from Features.txt) ───── */
+.glow-card-border {
+  background: linear-gradient(#0d0f1f, #0d0f1f) padding-box,
+    var(--card-gradient, linear-gradient(137deg, #7c5cff, #e8b84b)) border-box;
+  border: 1.5px solid transparent;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #05060f; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#7c5cff, #e8b84b);
+  border-radius: 10px;
+}
+
+/* ── Selection ───────────────────────────────────────────────── */
+::selection {
+  background: rgba(232, 184, 75, 0.3);
+  color: #fff;
+}
+
+/* Utility: text balance for headings */
+.text-balance { text-wrap: balance; }

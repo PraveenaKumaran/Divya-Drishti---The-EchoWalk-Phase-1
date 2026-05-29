@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Divya Drishti · Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          void: '#05060f', cosmos: '#0a0c1c', nebula: '#11142b', twilight: '#1a1f3d',
+          gold: '#e8b84b', amber: '#ffcf6b', ember: '#ff9d3c',
+          violet: '#7c5cff', indigo: '#4b3bd6', aura: '#a78bfa', sky: '#7dd3fc',
+          starlight: '#f4f1e8', moonmist: '#b8b5c8', ash: '#6b6880'
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'serif'],
+          body: ['"Outfit"', 'sans-serif'],
+          sanskrit: ['"Tiro Devanagari Sanskrit"', 'serif'],
+          mono: ['"JetBrains Mono"', 'monospace']
+        },
+        letterSpacing: { divine: '0.28em' }
+      }
+    }
+  }
+</script>
+
+<style>
+:root {
+  --gold:#e8b84b; --amber:#ffcf6b; --violet:#7c5cff; --aura:#a78bfa; --void:#05060f; --starlight:#f4f1e8;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body { margin:0; background:#05060f; color:#f4f1e8; font-family:'Outfit',sans-serif; overflow-x:hidden; }
+
+.cosmic-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,92,255,0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(232,184,75,0.08), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 10% 80%, rgba(75,59,214,0.12), transparent 60%),
+    linear-gradient(180deg, #05060f 0%, #0a0c1c 50%, #05060f 100%);
+}
+
+.liquid-glass {
+  background: rgba(255,255,255,0.015);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
+  position:relative; overflow:hidden;
+}
+.liquid-glass::before {
+  content:''; position:absolute; inset:0; border-radius:inherit; padding:1.4px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.35) 0%,rgba(232,184,75,0.12) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(124,92,255,0.12) 80%,rgba(255,255,255,0.35) 100%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
+}
+.liquid-glass-strong {
+  background:rgba(255,255,255,0.02); backdrop-filter:blur(40px); -webkit-backdrop-filter:blur(40px);
+  box-shadow:4px 4px 18px rgba(0,0,0,0.25),inset 0 1px 1px rgba(255,255,255,0.12);
+  position:relative; overflow:hidden;
+}
+
+.shimmer-gold {
+  background:linear-gradient(100deg,#e8b84b 20%,#fff3d0 38%,#ffffff 50%,#fff3d0 62%,#e8b84b 80%);
+  background-size:200% auto; -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; animation:shimmer 8s linear infinite;
+}
+@keyframes shimmer { 0%{background-position:200% center;} 100%{background-position:-200% center;} }
+
+.noise-overlay::after {
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:0.045; mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size:240px 240px;
+}
+
+.parchment {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(160,120,60,0.18), transparent 50%),
+    radial-gradient(ellipse at 75% 75%, rgba(120,85,40,0.22), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,232,200,0.04), transparent 70%),
+    linear-gradient(135deg,#e8d9b5 0%,#ddc89a 25%,#e6d6ad 50%,#d4bf8e 75%,#e2d0a3 100%);
+}
+
+.star { position:absolute; border-radius:50%; background:#fff; animation:twinkle var(--dur,4s) ease-in-out infinite; animation-delay:var(--delay,0s); }
+@keyframes twinkle { 0%,100%{opacity:0.15; transform:scale(0.8);} 50%{opacity:0.9; transform:scale(1.2);} }
+
+@keyframes float-slow { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+.float-slow { animation:float-slow 6s ease-in-out infinite; }
+
+.text-balance { text-wrap: balance; }
+::-webkit-scrollbar { width:10px; }
+::-webkit-scrollbar-track { background:#05060f; }
+::-webkit-scrollbar-thumb { background:linear-gradient(#7c5cff,#e8b84b); border-radius:10px; }
+::selection { background:rgba(232,184,75,0.3); color:#fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+}
+
+/* Reveal animation */
+.reveal { opacity:0; transform:translateY(40px); transition:opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1); }
+.reveal.in { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Three.js divine aura (canvas inserted by JS into #aura) -->
+<div id="root"></div>
+
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+// ── DivineAura ──────────────────────────────────────────────────
+function initAura(mount) {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, mount.clientWidth/mount.clientHeight, 0.1, 1000);
+  camera.position.z = 60;
+  const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+  renderer.setSize(mount.clientWidth, mount.clientHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  mount.appendChild(renderer.domElement);
+
+  const COUNT = reduced ? 400 : 1100;
+  const positions = new Float32Array(COUNT*3);
+  const basePos = new Float32Array(COUNT*3);
+  const colors = new Float32Array(COUNT*3);
+  const gold = new THREE.Color('#e8b84b'), violet = new THREE.Color('#7c5cff'), aura = new THREE.Color('#a78bfa');
+  for (let i=0;i<COUNT;i++){
+    const r = 18 + Math.random()*34;
+    const theta = Math.random()*Math.PI*2;
+    const phi = Math.acos(2*Math.random()-1);
+    const x = r*Math.sin(phi)*Math.cos(theta);
+    const y = r*Math.sin(phi)*Math.sin(theta)*0.6;
+    const z = r*Math.cos(phi)*0.5;
+    positions[i*3]=x; positions[i*3+1]=y; positions[i*3+2]=z;
+    basePos[i*3]=x; basePos[i*3+1]=y; basePos[i*3+2]=z;
+    const mix = Math.random();
+    const c = mix<0.5 ? gold.clone().lerp(aura, mix*2) : violet.clone().lerp(aura,(mix-0.5)*2);
+    colors[i*3]=c.r; colors[i*3+1]=c.g; colors[i*3+2]=c.b;
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions,3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors,3));
+
+  // glow sprite
+  const cv = document.createElement('canvas'); cv.width=cv.height=64;
+  const ctx = cv.getContext('2d');
+  const g = ctx.createRadialGradient(32,32,0,32,32,32);
+  g.addColorStop(0,'rgba(255,255,255,1)');
+  g.addColorStop(0.25,'rgba(255,240,210,0.8)');
+  g.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=g; ctx.fillRect(0,0,64,64);
+  const sprite = new THREE.CanvasTexture(cv);
+
+  const mat = new THREE.PointsMaterial({ size:1.4, map:sprite, vertexColors:true, transparent:true, opacity:0.9, depthWrite:false, blending:THREE.AdditiveBlending });
+  const points = new THREE.Points(geometry, mat);
+  scene.add(points);
+
+  const mouse = { x:0,y:0,tx:0,ty:0 };
+  const onMove = (e) => {
+    const r = mount.getBoundingClientRect();
+    mouse.tx = ((e.clientX-r.left)/r.width)*2-1;
+    mouse.ty = -(((e.clientY-r.top)/r.height)*2-1);
+  };
+  window.addEventListener('pointermove', onMove);
+
+  const clock = new THREE.Clock();
+  function animate(){
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    mouse.x += (mouse.tx-mouse.x)*0.04;
+    mouse.y += (mouse.ty-mouse.y)*0.04;
+    const pos = geometry.attributes.position.array;
+    for (let i=0;i<COUNT;i++){
+      const ix=i*3;
+      const drift = Math.sin(t*0.5 + i*0.05)*1.2;
+      pos[ix] = basePos[ix] + mouse.x*6 + drift*0.3;
+      pos[ix+1] = basePos[ix+1] + mouse.y*6 + Math.cos(t*0.4+i*0.07)*0.8;
+      pos[ix+2] = basePos[ix+2] + drift;
+    }
+    geometry.attributes.position.needsUpdate = true;
+    points.rotation.y = t*0.03 + mouse.x*0.2;
+    points.rotation.x = mouse.y*0.15;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = mount.clientWidth/mount.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(mount.clientWidth, mount.clientHeight);
+  });
+}
+
+// ── GooeyText ───────────────────────────────────────────────────
+function initGooey(container, texts) {
+  container.innerHTML = `
+    <svg style="position:absolute;height:0;width:0;" aria-hidden="true"><defs><filter id="threshold">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -140"/>
+    </filter></defs></svg>
+    <div style="filter:url(#threshold); display:flex; align-items:center; justify-content:center; height:100%; position:relative;">
+      <span class="gooey-1" style="position:absolute; display:inline-block; user-select:none;"></span>
+      <span class="gooey-2" style="position:absolute; display:inline-block; user-select:none;"></span>
+    </div>
+  `;
+  const t1 = container.querySelector('.gooey-1');
+  const t2 = container.querySelector('.gooey-2');
+  const cls = 'font-display italic text-4xl md:text-6xl text-moonmist';
+  t1.className += ' ' + cls; t2.className += ' ' + cls;
+
+  let textIndex = texts.length-1;
+  let time = new Date(), morph = 0, cooldown = 1.4;
+  const morphTime = 1.1, cooldownTime = 1.4;
+
+  function setMorph(fraction){
+    t2.style.filter = `blur(${Math.min(8/fraction-8,100)}px)`;
+    t2.style.opacity = `${Math.pow(fraction,0.4)*100}%`;
+    const inv = 1-fraction;
+    t1.style.filter = `blur(${Math.min(8/inv-8,100)}px)`;
+    t1.style.opacity = `${Math.pow(inv,0.4)*100}%`;
+  }
+  function doCooldown(){ morph=0; t2.style.filter=''; t2.style.opacity='100%'; t1.style.filter=''; t1.style.opacity='0%'; }
+  function doMorph(){
+    morph -= cooldown; cooldown = 0;
+    let fraction = morph / morphTime;
+    if (fraction>1) { cooldown = cooldownTime; fraction = 1; }
+    setMorph(fraction);
+  }
+  function animate(){
+    requestAnimationFrame(animate);
+    const newTime = new Date();
+    const shouldInc = cooldown > 0;
+    const dt = (newTime - time)/1000;
+    time = newTime;
+    cooldown -= dt;
+    if (cooldown <= 0) {
+      if (shouldInc) {
+        textIndex = (textIndex+1) % texts.length;
+        t1.textContent = texts[textIndex % texts.length];
+        t2.textContent = texts[(textIndex+1) % texts.length];
+      }
+      doMorph();
+    } else { doCooldown(); }
+  }
+  animate();
+}
+
+// ── Build the page ──────────────────────────────────────────────
+const VERSES = [
+  { num:'९', en:'Verse 9',
+    skt:'एष ते सञ्जयो राजन् युद्धमेतद्वदिष्यति ।\nएतस्य सर्वसङ्ग्रामे न परोक्षं भविष्यति ॥',
+    tr:'This Sanjaya, O King, will describe this battle to you. In the entire war, nothing will be hidden from his sight.',
+    link:'A narrator becomes the eyes of one who cannot see.' },
+  { num:'१०', en:'Verse 10',
+    skt:'चक्षुषा सञ्जयो राजन् दिव्येनैव समन्वितः ।\nकथयिष्यति ते युद्धं सर्वज्ञश्च भविष्यति ॥',
+    tr:'Endowed with divine vision, O King, Sanjaya will narrate the battle to you, and he will be all-knowing.',
+    link:'Divya Drishti — “divine vision” — spoken aloud, in real time.' },
+  { num:'११', en:'Verse 11',
+    skt:'प्रकाशं वाऽप्रकाशं वा दिवा वा यदि वा निशि ।\nमनसा चिन्तितमपि सर्वं वेत्स्यति सञ्जयः ॥',
+    tr:'Whether visible or concealed, whether by day or by night, even what is merely thought — Sanjaya will know everything.',
+    link:'By day or night, the seen and the hidden — what our AI must perceive.' }
+];
+
+const BRAINS = [
+  { n:'01', name:'Fast Brain', tag:'On-device obstacle detection', tech:'TensorFlow.js · COCO-SSD',
+    desc:'Runs inside the browser on the phone. Detects obstacles in real time and speaks a Tamil warning only when something gets close — never streaming the camera anywhere.',
+    grad:'linear-gradient(137deg,#7dd3fc 0%,#38bdf8 50%,#0ea5e9 100%)' },
+  { n:'02', name:'Slow Brain', tag:'Deep scene understanding', tech:'Groq · Llama-4-Scout',
+    desc:'On a tap, a single frame is sent for a Deep Scan. A vision model reads the whole scene and describes it in natural Tamil.',
+    grad:'linear-gradient(137deg,#a78bfa 0%,#7c5cff 50%,#4b3bd6 100%)' },
+  { n:'03', name:'The Locator', tag:'Where am I?', tech:'OpenStreetMap · Nominatim',
+    desc:'One tap answers the most grounding question. Reverse-geocoding turns GPS into a spoken neighbourhood name in Tamil.',
+    grad:'linear-gradient(137deg,#ffcf6b 0%,#e8b84b 50%,#ff9d3c 100%)' },
+  { n:'04', name:'The Navigator', tag:'Turn-by-turn walking', tech:'OpenRouteService',
+    desc:'Two-stage turns (20m heads-up, 5m “now”), wrong-way detection, and reminders paced to avoid overwhelming the user.',
+    grad:'linear-gradient(137deg,#ff9d3c 0%,#f97316 50%,#ea580c 100%)' }
+];
+
+const PHASE2 = [
+  { name:'EchoPin',  tag:'Peer-to-peer audio tags',     grad:'linear-gradient(137deg,#ffcf6b,#e8b84b,#ff9d3c)',
+    desc:'Users drop audio pins on a shared map — a safe crosswalk, an ATM with a headphone jack. The community becomes the map.' },
+  { name:'EchoLink', tag:'Live sighted-fallback',       grad:'linear-gradient(137deg,#7dd3fc,#38bdf8,#0ea5e9)',
+    desc:'One tap opens a 10-second video call to a trusted volunteer. Human help, exactly when AI isn’t enough.' },
+  { name:'EchoCast', tag:'Virtual pre-walk mode',        grad:'linear-gradient(137deg,#a78bfa,#7c5cff,#4b3bd6)',
+    desc:'Hear a sped-up 3D spatial-audio simulation of the route before leaving. Build the mental map first.' },
+  { name:'EchoPulse',tag:'Haptic turn signals',          grad:'linear-gradient(137deg,#ff9d3c,#f97316,#ea580c)',
+    desc:'Two buzzes for right, one long for left, rapid pulsing for obstacle. Ears stay free for the world.' },
+  { name:'EchoMarks',tag:'Sensory waypoints',            grad:'linear-gradient(137deg,#c4b5fd,#a78bfa,#8b5cf6)',
+    desc:'“Walk until the tactile paving changes.” Landmarks you can feel and smell — not just metres.' }
+];
+
+function starfield(count){
+  let s = '';
+  for (let i=0;i<count;i++){
+    const top = (Math.random()*100).toFixed(2);
+    const left = (Math.random()*100).toFixed(2);
+    const size = (Math.random()*2+1).toFixed(1);
+    const dur = (Math.random()*4+2.5).toFixed(1);
+    const delay = (Math.random()*4).toFixed(1);
+    s += `<span class="star" style="top:${top}%;left:${left}%;width:${size}px;height:${size}px;--dur:${dur}s;--delay:${delay}s;"></span>`;
+  }
+  return `<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">${s}</div>`;
+}
+
+function brainCard(b){
+  return `
+    <div class="group relative">
+      <div class="pointer-events-none absolute inset-0 rounded-[28px] opacity-50 blur-[55px] transition-opacity duration-500 group-hover:opacity-80" style="background:${b.grad}"></div>
+      <div class="relative z-10 h-full rounded-[28px] p-7 overflow-hidden" style="background:linear-gradient(#0a0c1c,#0a0c1c) padding-box, ${b.grad} border-box; border:1.5px solid transparent;">
+        <div class="flex items-start justify-between mb-5">
+          <div>
+            <span class="font-mono text-xs text-moonmist">${b.n}</span>
+            <h3 class="font-display text-3xl text-starlight leading-none mt-1">${b.name}</h3>
+            <p class="mt-1.5 text-sm text-moonmist font-light">${b.tag}</p>
+          </div>
+          <span class="rounded-full px-3 py-1.5 text-[11px] font-medium text-void whitespace-nowrap" style="background:${b.grad}">${b.tech}</span>
+        </div>
+        <p class="text-[14.5px] leading-relaxed text-moonmist font-light">${b.desc}</p>
+      </div>
+    </div>`;
+}
+
+function phaseCard(f, flagship){
+  if (flagship) {
+    return `
+      <div class="relative rounded-[32px] liquid-glass-strong border border-white/10 p-7 md:p-10 overflow-hidden mb-6">
+        <div class="pointer-events-none absolute -inset-10 blur-[80px]" style="background:linear-gradient(135deg, rgba(232,184,75,0.18), transparent 50%, rgba(124,92,255,0.18))"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10">
+          <div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-semibold text-void mb-4" style="background:${f.grad}">★ Flagship · Phase 2</span>
+            <h3 class="font-display text-5xl md:text-6xl text-starlight leading-none">${f.name}</h3>
+            <p class="mt-2 text-lg italic font-display text-gold">${f.tag}</p>
+            <p class="mt-5 text-[15px] text-moonmist font-light leading-relaxed">${f.desc}</p>
+          </div>
+          <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl liquid-glass border border-white/10">
+            <div class="absolute inset-0 bg-gradient-to-br from-twilight via-cosmos to-void"></div>
+            <div class="absolute inset-0 opacity-[0.05]" style="background-image:linear-gradient(rgba(255,255,255,0.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.4) 1px,transparent 1px); background-size:32px 32px;"></div>
+            ${[[28,38],[64,30],[45,66],[78,62]].map(([x,y]) => `
+              <div class="absolute" style="left:${x}%;top:${y}%;transform:translate(-50%,-100%)">
+                <span class="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2"><span class="block h-7 w-7 rounded-full bg-gold/30 animate-ping"></span></span>
+                <span class="relative flex h-8 w-8 items-center justify-center rounded-full" style="background:linear-gradient(135deg,#ffcf6b,#e8b84b); box-shadow:0 0 18px rgba(232,184,75,0.6)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#05060f"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                </span>
+              </div>`).join('')}
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              <span class="block h-4 w-4 rounded-full bg-sky" style="box-shadow:0 0 16px #7dd3fc"></span>
+              <span class="absolute inset-0 rounded-full bg-sky/40 animate-ping"></span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+  return `
+    <div class="group relative h-full">
+      <div class="pointer-events-none absolute inset-0 rounded-[20px] opacity-30 blur-[40px] group-hover:opacity-60 transition-opacity duration-500" style="background:${f.grad}"></div>
+      <div class="relative z-10 h-full rounded-[20px] p-6" style="background:linear-gradient(#0a0c1c,#0a0c1c) padding-box, ${f.grad} border-box; border:1.5px solid transparent;">
+        <h4 class="font-display text-2xl text-starlight">${f.name}</h4>
+        <p class="text-[12px] italic text-moonmist mb-3">${f.tag}</p>
+        <p class="text-[13.5px] text-moonmist font-light leading-relaxed">${f.desc}</p>
+      </div>
+    </div>`;
+}
+
+// Render page
+const root = document.getElementById('root');
+root.innerHTML = `
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section class="relative cosmic-bg noise-overlay">
+  <div class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    ${starfield(70)}
+    <div id="aura" class="absolute inset-0 z-0"></div>
+    <div class="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full" style="background:rgba(232,184,75,0.1); filter:blur(120px)"></div>
+
+    <div class="relative z-10 flex flex-col items-center px-6 text-center">
+      <div class="mb-7 flex items-center gap-2 rounded-full liquid-glass px-4 py-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8b84b" stroke-width="1.8"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M5.6 18.4l12.8-12.8"/></svg>
+        <span class="text-[11px] font-medium uppercase tracking-divine text-moonmist">Mahābhārata · Bhīṣma Parva · 6.2.9–11</span>
+      </div>
+      <h1 class="font-display text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight">
+        <span class="shimmer-gold">Divya</span> <span class="italic text-starlight">Drishti</span>
+      </h1>
+      <div id="gooey" class="mt-6 h-[70px] md:h-[90px] w-full max-w-2xl"></div>
+      <p class="mt-8 max-w-xl text-base md:text-lg leading-relaxed text-moonmist font-light text-balance">
+        An AI companion that becomes the eyes of those who cannot see — describing the world, guiding each step, and speaking their own language. Tamil-first. On-device. Built with respect.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center gap-4">
+        <a href="#origin" class="px-7 py-3.5 text-[15px] font-medium rounded-full text-void bg-gradient-to-r from-gold via-amber to-gold transition-transform hover:scale-[1.03] shadow-[0_8px_30px_-6px_rgba(232,184,75,0.5)]">Discover the story</a>
+        <a href="#" class="px-7 py-3.5 text-[15px] font-medium rounded-full text-starlight liquid-glass-strong transition-transform hover:scale-[1.03]">Try the live demo</a>
+      </div>
+    </div>
+
+    <a href="#origin" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-moonmist">
+      <span class="text-[10px] uppercase tracking-divine">Why this name</span>
+      <svg class="h-5 w-5 text-gold animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+  </div>
+
+  <!-- Origin / Sanskrit verses on parchment -->
+  <div id="origin" class="relative px-5 py-28 md:py-36">
+    ${starfield(40)}
+    <div class="relative z-10 mx-auto max-w-4xl text-center mb-20 reveal">
+      <p class="text-[11px] uppercase tracking-divine text-gold mb-5">The Origin</p>
+      <h2 class="font-display text-4xl md:text-6xl leading-tight text-starlight text-balance">
+        A blind king. A narrator gifted with <span class="italic shimmer-gold">divine sight.</span>
+      </h2>
+      <p class="mt-7 mx-auto max-w-2xl text-moonmist font-light leading-relaxed">
+        On the eve of the Kurukshetra war, the sage Vyāsa offers the blind king Dhṛtarāṣṭra a gift: he grants his charioteer Sañjaya <span class="text-starlight">divya drishti</span> — divine vision — so he can narrate the entire battle aloud. Nothing hidden, by day or night. It is, perhaps, the oldest story of giving sight through words.
+      </p>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-5xl">
+      ${VERSES.map((v,i) => `
+        <div class="reveal my-10 ${i===0 ? 'md:mr-auto md:ml-0 md:max-w-3xl' : i===1 ? 'md:ml-auto md:mr-0 md:max-w-3xl' : 'md:mx-auto md:max-w-3xl'}">
+          <!-- Parchment scroll -->
+          <div class="relative flex items-stretch">
+            <div class="relative z-20 flex flex-col items-center" style="width:34px;">
+              <div class="rounded-full" style="width:28px;height:28px;background:radial-gradient(circle at 35% 35%, #9a6b3e, #6b4a2b 70%, #3d280f); box-shadow:0 4px 10px rgba(0,0,0,0.6), inset 0 2px 3px rgba(255,220,170,0.4); margin-bottom:-5px; z-index:2;"></div>
+              <div class="flex-1 w-full rounded-[6px]" style="background:linear-gradient(90deg,#4a3018,#8a5e36 30%,#b07d48 50%,#7a5230 70%,#3d280f); box-shadow:inset 2px 0 4px rgba(255,220,170,0.3), inset -2px 0 6px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.5);"></div>
+              <div class="rounded-full" style="width:28px;height:28px;background:radial-gradient(circle at 35% 35%, #9a6b3e, #6b4a2b 70%, #3d280f); box-shadow:0 4px 10px rgba(0,0,0,0.6), inset 0 2px 3px rgba(255,220,170,0.4); margin-top:-5px; z-index:2;"></div>
+            </div>
+            <div class="relative flex-1 -mx-2 z-10">
+              <div class="parchment relative px-6 md:px-12 py-10 md:py-12" style="box-shadow:0 30px 80px -20px rgba(0,0,0,0.7), inset 0 0 60px rgba(120,85,40,0.25);">
+                <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(90,60,25,0.28) 100%)"></div>
+                <div class="relative text-center" style="color:#3a2a16;">
+                  <div class="mb-3 flex items-center justify-center gap-3">
+                    <span class="font-sanskrit text-3xl md:text-4xl" style="color:#6b3f1d;">${v.num}</span>
+                    <span class="text-[10px] uppercase" style="letter-spacing:0.25em; color:#7a5a32;">${v.en}</span>
+                  </div>
+                  <p class="font-sanskrit text-lg md:text-2xl leading-relaxed whitespace-pre-line" style="color:#3a2a16; text-shadow:0 1px 0 rgba(255,245,220,0.5);">${v.skt}</p>
+                  <p class="mt-5 font-display italic text-base md:text-lg max-w-xl mx-auto" style="color:#5a4126;">“${v.tr}”</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative z-20 flex flex-col items-center" style="width:34px;">
+              <div class="rounded-full" style="width:28px;height:28px;background:radial-gradient(circle at 35% 35%, #9a6b3e, #6b4a2b 70%, #3d280f); box-shadow:0 4px 10px rgba(0,0,0,0.6), inset 0 2px 3px rgba(255,220,170,0.4); margin-bottom:-5px; z-index:2;"></div>
+              <div class="flex-1 w-full rounded-[6px]" style="background:linear-gradient(90deg,#4a3018,#8a5e36 30%,#b07d48 50%,#7a5230 70%,#3d280f); box-shadow:inset 2px 0 4px rgba(255,220,170,0.3), inset -2px 0 6px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.5);"></div>
+              <div class="rounded-full" style="width:28px;height:28px;background:radial-gradient(circle at 35% 35%, #9a6b3e, #6b4a2b 70%, #3d280f); box-shadow:0 4px 10px rgba(0,0,0,0.6), inset 0 2px 3px rgba(255,220,170,0.4); margin-top:-5px; z-index:2;"></div>
+            </div>
+          </div>
+          <div class="mt-5 flex justify-center">
+            <div class="flex items-center gap-2.5 rounded-full liquid-glass px-4 py-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-gold animate-pulse"></span>
+              <span class="text-[12px] md:text-[13px] text-moonmist font-light">${v.link}</span>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-2xl text-center mt-20 reveal">
+      <div class="rounded-2xl liquid-glass px-8 py-7">
+        <p class="font-display text-2xl md:text-3xl italic text-starlight leading-snug">
+          “Be the eyes for those who cannot see —<br><span class="shimmer-gold">by day or night, the seen and the unseen.”</span>
+        </p>
+        <p class="mt-4 text-sm text-moonmist font-light">The myth names the mission. The rest of the site is how we build it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Four-Brain System (condensed) ───────────────────────── -->
+<section class="relative cosmic-bg py-28 md:py-32 overflow-hidden noise-overlay">
+  ${starfield(45)}
+  <div class="relative z-10 mx-auto max-w-6xl px-5">
+    <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+      <p class="text-[11px] uppercase tracking-divine text-gold mb-5">The Core Innovation</p>
+      <h2 class="font-display text-4xl md:text-6xl leading-tight text-starlight">One companion. Four brains.</h2>
+      <p class="mt-6 text-lg text-moonmist font-light leading-relaxed">
+        Like Sañjaya perceiving the visible and the hidden, Drishti runs four specialised systems — each tuned to a different way of seeing.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      ${BRAINS.map(b => `<div class="reveal">${brainCard(b)}</div>`).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- ── Phase 2 / EchoPin (condensed) ────────────────────────── -->
+<section class="relative overflow-hidden py-28 md:py-36">
+  <div class="absolute inset-0" style="background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,92,255,0.22), transparent 60%), radial-gradient(ellipse 60% 50% at 80% 60%, rgba(232,184,75,0.10), transparent 55%), linear-gradient(180deg,#07081a,#05060f);"></div>
+  ${starfield(80)}
+  <div class="relative z-10 mx-auto max-w-6xl px-5">
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+      <div class="inline-flex items-center gap-2 rounded-full liquid-glass px-4 py-2 mb-6">
+        <span class="text-[11px] uppercase tracking-divine text-moonmist">Phase 2 · The Future</span>
+      </div>
+      <h2 class="font-display text-4xl md:text-7xl leading-[1.02] text-starlight">When one app becomes a community.</h2>
+      <p class="mt-7 text-lg text-moonmist font-light leading-relaxed">
+        Phase 1 gave one person divine sight. Phase 2 connects them into a living network. This is the <span class="text-aura font-medium">EchoPin</span> ecosystem.
+      </p>
+    </div>
+
+    <div class="reveal">${phaseCard(PHASE2[0], true)}</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      ${PHASE2.slice(1).map(f => `<div class="reveal">${phaseCard(f, false)}</div>`).join('')}
+    </div>
+
+    <div class="reveal mt-14 rounded-2xl liquid-glass px-6 py-6">
+      <p class="text-center text-[11px] uppercase tracking-divine text-moonmist mb-5">The Echo Family</p>
+      <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">
+        ${['EchoWalk','EchoPin','EchoLink','EchoCast','EchoPulse','EchoMarks'].map((n,i,arr) => `
+          <span class="font-display text-lg md:text-2xl ${i===0?'text-gold':'text-starlight'}">${n}${i===0?'<span class="ml-1.5 text-[9px] uppercase tracking-widest text-gold/70 align-top">live</span>':''}</span>
+          ${i < arr.length-1 ? '<svg class="h-4 w-4 text-ash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>' : ''}
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="reveal text-center mt-16">
+      <p class="text-sm text-ash font-light">
+        This is a 3-section preview. The full multi-file project also includes:<br>
+        Problem · Architecture diagram · Demo screenshot · Tech Stack · Privacy by Design · Roadmap · Team · Floating menu · Navbar.
+      </p>
+    </div>
+  </div>
+</section>
+`;
+
+// Init Three.js aura
+const auraMount = document.getElementById('aura');
+if (auraMount) initAura(auraMount);
+
+// Init gooey
+const gooeyMount = document.getElementById('gooey');
+if (gooeyMount) initGooey(gooeyMount, ['Divine Sight', 'திருஷ்டி', 'Divine Vision', 'दृष्टि', 'Sight for All']);
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
