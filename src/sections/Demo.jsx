@@ -109,7 +109,7 @@ function DeviceMockup() {
           </div>
           
           <img
-            src="/demo-screenshot.png"
+            src="/public/Screenshot 2026-05-30 005257.png"
             alt="Drishti Interface"
             className="w-full h-auto block opacity-90 transition-opacity hover:opacity-100"
           />
