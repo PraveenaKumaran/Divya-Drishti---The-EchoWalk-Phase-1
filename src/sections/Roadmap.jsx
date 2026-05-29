@@ -16,7 +16,7 @@ export default function Roadmap() {
             <p className="text-[11px] uppercase tracking-divine text-gold mb-5">The Path Ahead</p>
           </Reveal>
           <BlurText
-            text="From one set of eyes to a living map."
+            text="Complete RoadMap"
             className="font-display text-4xl md:text-6xl leading-tight text-starlight justify-center"
           />
         </div>

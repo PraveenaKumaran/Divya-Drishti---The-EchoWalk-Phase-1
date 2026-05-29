@@ -8,33 +8,31 @@ const PRINCIPLES = [
   {
     icon: Smartphone,
     title: 'The camera stays home',
-    body: 'The Fast Brain runs entirely on the phone. The live video feed is never uploaded, never streamed — it physically never leaves the device.',
+    body: 'The Fast Brain runs entirely on-device. Unless explicitly triggering an EchoLink SOS call, the live video feed is never uploaded or streamed. It physically stays in your hand.',
   },
   {
     icon: Hand,
     title: 'Cloud only on a tap',
-    body: 'The one time a frame reaches the cloud is a Deep Scan the user deliberately triggers. One image, processed, then gone — never a continuous feed.',
+    body: 'The only time a frame reaches the cloud is when a Deep Scan is deliberately requested. One static image is processed and immediately discarded — never a continuous feed.',
   },
   {
     icon: UserX,
     title: 'No face recognition',
-    body: 'Drishti describes scenes and obstacles. It never identifies, profiles, or remembers individuals. People in frame are “a person,” nothing more.',
+    body: 'Drishti describes scenes, not people. Any image sent to the Slow Brain is stripped of PII (Personally Identifiable Information), ensuring bystanders remain completely anonymous.',
   },
   {
     icon: Trash2,
     title: 'Nothing stored',
-    body: 'No saved video, no recorded routes, no usage profile. There is no account to create and no history to leak.',
+    body: 'No saved video, no recorded routes, and no hidden databases. There is no user account required to use the app, meaning there is zero history to leak.',
   },
   {
     icon: EyeOff,
     title: 'No tracking',
-    body: 'No advertising SDKs, no behavioural analytics following the user around. The app’s only job is to help its user see.',
-  },
+    body: 'No advertising SDKs, no behavioral analytics, and no silent data brokering. The application’s single, uncompromised job is to help its user navigate safely.',  },
   {
     icon: ShieldCheck,
     title: 'Open by default',
-    body: 'Open models and open mapping data mean the privacy claims are inspectable — not promises behind a closed black box.',
-  },
+    body: 'Utilizing open-source models (Llama/TensorFlow) and open mapping data (OSM) ensures these privacy claims are fully inspectable — not empty promises behind a closed black box.',  },
 ]
 
 export default function Privacy() {
@@ -58,9 +56,9 @@ export default function Privacy() {
           />
           <Reveal delay={0.2}>
             <p className="mt-6 text-lg text-moonmist font-light leading-relaxed">
-              A tool that watches the world on your behalf carries real
-              responsibility. So privacy here isn’t a policy page — it’s an
-              architectural decision baked into how each brain works.
+              A tool that watches the world on your behalf carries massive responsibility. 
+              Privacy here isn’t a policy page — it’s an architectural directive baked into 
+              how each brain functions.
             </p>
           </Reveal>
         </div>

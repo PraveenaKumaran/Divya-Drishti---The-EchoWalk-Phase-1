@@ -88,37 +88,32 @@ export const PHASE2 = [
     tagline: 'Peer-to-peer accessibility tagging',
     color: 'gold',
     gradient: 'linear-gradient(137deg, #ffcf6b, #e8b84b, #ff9d3c)',
-    desc: 'Users drop “audio pins” on a shared map — a safe crosswalk, an ATM with a headphone jack, a broken footpath. When another Drishti user walks near, the app reads that shared wisdom aloud. The community becomes the map.',
-    flagship: true,
+    desc: 'Users drop “audio pins” on a shared map — a safe crosswalk, an ATM with a headphone jack, a broken footpath. When another Divya Drishti user walks near, the app reads that shared wisdom aloud. The community becomes the map.',    flagship: true,
   },
   {
     name: 'EchoLink',
     tagline: 'Live sighted-fallback',
     color: 'sky',
     gradient: 'linear-gradient(137deg, #7dd3fc, #38bdf8, #0ea5e9)',
-    desc: 'When the AI hits its limit on a tricky scene, one tap opens a 10-second video call to a network of trusted volunteers or family — “which can is the coconut milk?” Human help, exactly when AI isn’t enough.',
-  },
+    desc: 'When the AI hits its limit on a tricky scene, one tap opens a 10-second video call to a network of trusted volunteers or family — "which can is the coconut milk?" Human help, exactly when AI isn’t enough.',  },
   {
     name: 'EchoCast',
     tagline: 'Virtual pre-walk mode',
     color: 'violet',
     gradient: 'linear-gradient(137deg, #a78bfa, #7c5cff, #4b3bd6)',
-    desc: 'Before leaving home, hear a sped-up 3D spatial-audio simulation of the route — turns arriving in your left or right ear. Build the mental map first; walk it with confidence later.',
-  },
+    desc: 'Before leaving home, hear a sped-up 3D spatial-audio simulation of the route — turns arriving in your left or right ear. Build the mental map first; walk it with confidence later.',  },
   {
     name: 'EchoPulse',
     tagline: 'Haptic turn signals',
     color: 'ember',
     gradient: 'linear-gradient(137deg, #ff9d3c, #f97316, #ea580c)',
-    desc: 'Constant audio blocks out traffic and footsteps. EchoPulse moves directions to touch: two short buzzes for right, one long for left, rapid pulsing for an obstacle. Ears stay free for the world.',
-  },
+    desc: 'Constant audio blocks out traffic. EchoPulse moves directions to touch: two short buzzes for right, one long for left, rapid pulsing for an obstacle. Ears stay free for the world.',  },
   {
     name: 'EchoMarks',
     tagline: 'Sensory waypoints',
     color: 'aura',
     gradient: 'linear-gradient(137deg, #c4b5fd, #a78bfa, #8b5cf6)',
-    desc: 'Navigation in the language of real perception: “walk until the tactile paving changes,” “turn left after the bakery.” Landmarks you can feel and smell — not just metres on a screen.',
-  },
+    desc: 'Navigation in the language of real perception: "walk until the tactile paving changes," "turn left after the bakery." Landmarks you can feel and smell — not just metres on a screen.',  },
 ]
 
 export const ROADMAP = [
@@ -126,18 +121,12 @@ export const ROADMAP = [
     phase: 'Phase 1',
     name: 'EchoWalk',
     status: 'Live now',
-    items: ['Four-Brain System', 'Tamil-first voice', 'On-device obstacle detection', 'Turn-by-turn walking'],
+    items: ['Four-Brain Architecture', 'Tamil-first localized voice', 'On-device obstacle detection', 'Turn-by-turn foot routing'],
   },
   {
     phase: 'Phase 2',
-    name: 'EchoPin Ecosystem',
+    name: 'Echo Ecosystem',
     status: 'Next',
-    items: ['Peer-to-peer audio pins', 'Live volunteer fallback', '3D pre-walk audio', 'Haptic navigation'],
-  },
-  {
-    phase: 'Phase 3',
-    name: 'The Living Map',
-    status: 'Vision',
-    items: ['Multi-language (pan-India)', 'Wearable + bone-conduction', 'Indoor navigation', 'Offline-first everywhere'],
-  },
+    items: ['EchoPin: Peer-to-peer audio pins', 'EchoLink: Live volunteer fallback', 'EchoCast: 3D pre-walk audio', 'EchoPulse: Haptic navigation','EchoMarks'],
+  }
 ]

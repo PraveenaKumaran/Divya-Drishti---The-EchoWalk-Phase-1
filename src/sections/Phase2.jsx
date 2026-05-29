@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Users, Video, Headphones, Vibrate, Footprints, ArrowRight, Sparkles } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import DimensionalCanvas from '../components/DimensionalCanvas'
@@ -30,18 +30,24 @@ export default function Phase2() {
 
         <div className="relative z-10 mx-auto max-w-5xl px-5 text-center">
           <Reveal y={40} duration={1.2}>
-            <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-aura/30 bg-aura/10 shadow-[0_0_40px_rgba(167,139,250,0.4)]">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-aura/30 bg-aura/10 shadow-[0_0_40px_rgba(167,139,250,0.4)]">
               <Sparkles className="h-7 w-7 text-aura" />
             </div>
             
-            <p className="text-[12px] uppercase tracking-[0.3em] text-aura mb-6 font-semibold">
-              System Evolution • Phase Two
+            <p className="text-[12px] uppercase tracking-[0.3em] text-aura mb-2 font-semibold">
+              System Evolution
             </p>
+
+            {/* THE UPGRADE: Massive, Cinematic "PHASE 2" Headline */}
+            <h2 className="font-display text-7xl md:text-9xl lg:text-[11rem] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/0 drop-shadow-2xl mb-4 select-none">
+              PHASE 2
+            </h2>
           </Reveal>
           
+          {/* We slightly reduced the size of this so it complements Phase 2 instead of competing with it */}
           <BlurText
             text="When one app becomes a living community."
-            className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] text-starlight justify-center drop-shadow-2xl"
+            className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-starlight justify-center drop-shadow-2xl"
           />
           
           <Reveal delay={0.4} y={30}>
@@ -125,8 +131,16 @@ export default function Phase2() {
                     className={`font-display text-xl md:text-3xl cursor-default transition-colors ${i === 0 ? 'text-gold drop-shadow-[0_0_15px_rgba(232,184,75,0.5)]' : 'text-starlight hover:text-aura'}`}
                   >
                     {name}
-                    {i === 0 && <span className="ml-2 text-[10px] font-sans font-bold uppercase tracking-widest text-gold/80 align-top">Live</span>}
-                  </motion.span>
+                    {i === 0 && (
+                      <span className="ml-2 inline-flex items-center gap-1.5 align-top">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-emerald-400">Live</span>
+                      </span>
+                    )}                  
+                    </motion.span>
                   {i < arr.length - 1 && <ArrowRight className="h-5 w-5 text-white/20" />}
                 </React.Fragment>
               ))}
